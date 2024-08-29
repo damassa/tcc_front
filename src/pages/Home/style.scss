@@ -1,9 +1,17 @@
+.page-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.main-content {
+    flex: 1;
+}
+
 .banner {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-left: 60px;
-    padding-top: 80px;
 }
 
 .banner-left {
