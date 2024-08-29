@@ -1,0 +1,10 @@
+.serie--list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0 30px;
+}
+
+.serie--list--cards {
+    width: 100%;
+}

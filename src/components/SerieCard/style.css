@@ -1,0 +1,11 @@
+.card {
+    display: inline-block;
+    width: 150px;
+    cursor: pointer;
+}
+
+.card img {
+    width: 100%;
+    transform: scale(0.9);
+    transition: ease 0.2s;
+}

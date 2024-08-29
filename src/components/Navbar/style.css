@@ -1,0 +1,88 @@
+header {
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+    background-color: transparent;
+    transition: all ease 0.5s;
+}
+
+header.purple {
+    background-color: #33212A;
+}
+
+header a {
+    text-decoration: none;
+}
+
+.header--logo {
+    height: 15px;
+    font-family: 'Genos', sans-serif;
+    font-size: 20px;
+}
+
+.header--logo a {
+    text-decoration: none;
+    color: #f6f6f6;
+}
+
+.header--logo img {
+    height: 100%;
+}
+
+.header--user {
+    width: 40px;
+    height: 40px;
+    background-color: #33212A;
+    border-radius: 50px;
+    font-size: 12px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #f6f6f6;
+}
+
+.header--user img {
+    height: 100%;
+    border-radius: 3px;
+}
+
+.header--search {
+    width: 500px;
+    position: relative;
+    display: flex;
+}
+
+.search--input {
+    width: 100%;
+    border: 1px solid #33212A;
+    border-right: none;
+    padding: 5px;
+    height: 30px;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+    color: #252625;
+    font-family: 'Fira Sans', sans-serif;
+}
+
+.search--input:focus {
+    color: #252625;
+}
+
+.search--button {
+    width: 40px;
+    height: 30px;
+    background-color: transparent;
+    color: #f6f6f6;
+    border-radius: 5px 0 0 5px;
+    font-size: 18px;
+    cursor: pointer;
+    border: none;
+}
