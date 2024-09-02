@@ -3,9 +3,7 @@ import './style.scss';
 import imageBanner from '../../assets/images/undraw_horror_movie_3988.svg';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
-
-// import SerieCard from '../../components/SerieCard';
-// import SerieList from '../../components/SerieList';
+import SerieCard from '../../components/SerieCard';
 
 const Home: React.FC = () => {
     return (
@@ -19,6 +17,32 @@ const Home: React.FC = () => {
                             </div>
                             <div className="banner-right">
                                 <img src={imageBanner} alt="imagem da homepage" />
+                            </div>
+                        </div>
+                        <div className="carousel slide">
+                            <div className="carousel-inner">
+                                <SerieCard />
+                            </div>
+                            <div className="carousel-inner">
+                                <SerieCard />
+                            </div>
+                            <div className="carousel-inner">
+                                <SerieCard />
+                            </div>
+                            <div className="carousel-inner">
+                                <SerieCard />
+                            </div>
+                            <div className="carousel-inner">
+                                <SerieCard />
+                            </div>
+                            <div className="carousel-inner">
+                                <SerieCard />
+                            </div>
+                            <div className="carousel-inner">
+                                <SerieCard />
+                            </div>
+                            <div className="carousel-inner">
+                                <SerieCard />
                             </div>
                         </div>
                     </div>
