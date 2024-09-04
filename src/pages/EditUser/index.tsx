@@ -1,12 +1,18 @@
 import React from 'react';
+import Navbar from '../../components/Navbar';
+import Footer from '../../components/Footer';
 
 // import { Container } from './styles';
 
 const EditUser: React.FC = () => {
   return (
-    <div>
-      <h1>Edit user</h1>
-    </div>
+    <>
+      <Navbar />
+      <div>
+        <h1>Rota de edição por enquanto</h1>
+      </div>
+      <Footer />
+    </>
   );
 }
 

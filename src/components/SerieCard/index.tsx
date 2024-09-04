@@ -4,8 +4,10 @@ import Gorenger from '../../assets/images/Gorenger.jpg';
 
 const SerieCard: React.FC = () => {
     return (
-        <div className='card'>
-            <img src={Gorenger} alt="Serie" />
+        <div className='serie-card'>
+            <a href="/detail">
+                <img className='d-block w-100' src={Gorenger} alt="Serie" />
+            </a>
         </div>
     );
 }

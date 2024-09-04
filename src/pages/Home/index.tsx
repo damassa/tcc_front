@@ -1,4 +1,5 @@
 import './style.scss';
+import Slider from 'react-slick';
 
 import imageBanner from '../../assets/images/undraw_horror_movie_3988.svg';
 import Navbar from '../../components/Navbar';
@@ -6,6 +7,41 @@ import Footer from '../../components/Footer';
 import SerieCard from '../../components/SerieCard';
 
 const Home: React.FC = () => {
+    const settings = {
+        dots: false,
+        infinite: false,
+        speed: 500,
+        slidesToShow: 7,
+        slidesToScroll: 4,
+        initialSlide: 0,
+        responsive: [
+        {
+            breakpoint: 1024,
+            settings: {
+                slidesToShow: 4,
+                slidesToScroll: 4,
+                infinite: true,
+                dots: false
+            }
+        },
+        {
+            breakpoint: 600,
+            settings: {
+                slidesToShow: 2,
+                slidesToScroll: 2,
+                initialSlide: 2
+            }
+        },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }
+        ]
+    };
+
     return (
         <>
             <Navbar />
@@ -19,31 +55,51 @@ const Home: React.FC = () => {
                                 <img src={imageBanner} alt="imagem da homepage" />
                             </div>
                         </div>
-                        <div className="carousel slide">
-                            <div className="carousel-inner">
-                                <SerieCard />
-                            </div>
-                            <div className="carousel-inner">
-                                <SerieCard />
-                            </div>
-                            <div className="carousel-inner">
-                                <SerieCard />
-                            </div>
-                            <div className="carousel-inner">
-                                <SerieCard />
-                            </div>
-                            <div className="carousel-inner">
-                                <SerieCard />
-                            </div>
-                            <div className="carousel-inner">
-                                <SerieCard />
-                            </div>
-                            <div className="carousel-inner">
-                                <SerieCard />
-                            </div>
-                            <div className="carousel-inner">
-                                <SerieCard />
-                            </div>
+                        <div className="slider-container carousel-container">
+                            <Slider {...settings}>
+                                <div>
+                                    <SerieCard />
+                                </div>
+                                <div>
+                                    <SerieCard />
+                                </div>
+                                <div>
+                                    <SerieCard />
+                                </div>
+                                <div>
+                                    <SerieCard />
+                                </div>
+                                <div>
+                                    <SerieCard />
+                                </div>
+                                <div>
+                                    <SerieCard />
+                                </div>
+                                <div>
+                                    <SerieCard />
+                                </div>
+                                <div>
+                                    <SerieCard />
+                                </div>
+                                <div>
+                                    <SerieCard />
+                                </div>
+                                <div>
+                                    <SerieCard />
+                                </div>
+                                <div>
+                                    <SerieCard />
+                                </div>
+                                <div>
+                                    <SerieCard />
+                                </div>
+                                <div>
+                                    <SerieCard />
+                                </div>
+                                <div>
+                                    <SerieCard />
+                                </div>
+                            </Slider>
                         </div>
                     </div>
                 </div>

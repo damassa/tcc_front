@@ -1,17 +1,25 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './style.css';
 // import { FaSearch } from 'react-icons/fa';
 
 const Navbar: React.FC = () => {
-  const navElement = document.querySelector('.navbar');
+  useEffect(() => {
+    const navElement = document.querySelector('.navbar');
 
-  window.addEventListener('scroll', () => {
-    if (window.scrollY >= 56) {
-      navElement!.classList.add('navbar-purple');
-    } else if (window.scrollY < 56) {
-      navElement!.classList.remove('navbar-purple');
-    }
-  });
+    const handleScroll = () => {
+      if (window.scrollY >= 50) {
+        navElement?.classList.add('navbar-purple');
+      } else {
+        navElement?.classList.remove('navbar-purple');
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   return (
     <nav className="navbar navbar-expand-lg fixed-top navbar-dark">
