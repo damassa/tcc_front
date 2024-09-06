@@ -5,8 +5,12 @@ import imageBanner from '../../assets/images/undraw_horror_movie_3988.svg';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 import SerieCard from '../../components/SerieCard';
+import Button from '../../components/Button';
+
+
 
 const Home: React.FC = () => {
+
     const settings = {
         dots: false,
         infinite: false,
@@ -55,6 +59,7 @@ const Home: React.FC = () => {
                                 <img src={imageBanner} alt="imagem da homepage" />
                             </div>
                         </div>
+                        <h3 className='fw-bold'>Lançamentos</h3>
                         <div className="slider-container carousel-container">
                             <Slider {...settings}>
                                 <div>
@@ -100,6 +105,36 @@ const Home: React.FC = () => {
                                     <SerieCard />
                                 </div>
                             </Slider>
+                        </div>
+                        <h3 className='fw-bold'>Séries Populares</h3>
+                        <div className="serie-list">
+                            <SerieCard />
+                            <SerieCard />
+                            <SerieCard />
+                            <SerieCard />
+                            <SerieCard />
+                            <SerieCard />
+                            <SerieCard />
+                            <SerieCard />
+                            <SerieCard />
+                            <SerieCard />
+                            <SerieCard />
+                            <SerieCard />
+                            <SerieCard />
+                            <SerieCard />
+                            <SerieCard />
+                            <SerieCard />
+                            <SerieCard />
+                            <SerieCard />
+                            <SerieCard />
+                            <SerieCard />
+                            <SerieCard />
+                            <SerieCard />
+                            <SerieCard />
+                            <SerieCard />
+                        </div>
+                        <div className="text-center my-3">
+                            <Button />
                         </div>
                     </div>
                 </div>

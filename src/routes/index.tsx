@@ -1,8 +1,9 @@
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
 import Home from '../pages/Home';
 import SerieDetail from '../pages/SerieDetail';
-import EditUser from '../pages/EditUser';
+import Categories from '../pages/Categories';
 import Login from '../pages/Login';
+import Favorites from '../pages/Favorites';
 
 const RoutesSite: React.FC = () => {
     return (
@@ -10,8 +11,9 @@ const RoutesSite: React.FC = () => {
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path='/detail' element={<SerieDetail />} />
-                <Route path='/edit' element={<EditUser />} />
+                <Route path='/categories' element={<Categories />} />
                 <Route path='/login' element={<Login />} />
+                <Route path='/favorites' element={<Favorites />} />
             </Routes>
         </BrowserRouter>
     );

@@ -22,3 +22,10 @@
     width: 100%;
     height: 250px;
 }
+
+.serie-list {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: space-between;
+}
