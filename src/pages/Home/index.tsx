@@ -5,7 +5,7 @@ import imageBanner from '../../assets/images/undraw_horror_movie_3988.svg';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 import SerieCard from '../../components/SerieCard';
-import Button from '../../components/Button';
+import LoadMoreButton from '../../components/LoadMoreButton';
 
 
 
@@ -134,7 +134,7 @@ const Home: React.FC = () => {
                             <SerieCard />
                         </div>
                         <div className="text-center my-3">
-                            <Button />
+                            <LoadMoreButton />
                         </div>
                     </div>
                 </div>

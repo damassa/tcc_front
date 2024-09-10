@@ -1,7 +1,7 @@
 import React from 'react';
 import Navbar from '../../components/Navbar';
 import SerieCard from '../../components/SerieCard';
-import Button from '../../components/Button';
+import Button from '../../components/LoadMoreButton';
 import Footer from '../../components/Footer';
 
 // import { Container } from './styles';

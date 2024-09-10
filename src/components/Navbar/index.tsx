@@ -1,8 +1,19 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import Modal from '../Modal';
 import './style.css';
 // import { FaSearch } from 'react-icons/fa';
 
 const Navbar: React.FC = () => {
+  const [modalVisible, setModalVisible] = useState(false);
+
+  const handleOpenModal = () => {
+    setModalVisible(true);
+  };
+
+  const handleCloseModal = () => {
+    setModalVisible(false);
+  };
+
   useEffect(() => {
     const navElement = document.querySelector('.navbar');
 
@@ -38,9 +49,10 @@ const Navbar: React.FC = () => {
             </li>
           </ul>
           <div className="d-flex">
-            <a href="/edit">
+            <a href="#" onClick={handleOpenModal}>
               <div className="navbar-user">FD</div>
             </a>
+            <Modal show={modalVisible} title='Editar dados do usuário' body='Corpo da modal' onClose={handleCloseModal} />
           </div>
         </div>
       </div>
