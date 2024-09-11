@@ -1,36 +1,79 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Modal as ModalForm, Form } from 'react-bootstrap';
 import './style.scss';
 
 interface ModalProps {
     show: boolean;
-    title: string;
-    body: string;
-    onClose: () => void;
+    handleSubmit: (formData: { name: string; email: string; password: string; confirmPassword: string; }) => void;
+    handleClose: () => void;
 }
 
-const Modal: React.FC<ModalProps> = ({ show, title, body, onClose }) => {
+const Modal: React.FC<ModalProps> = ({ show, handleClose, handleSubmit }) => {
+    const [name, setName] = useState<string>('');
+    const [email, setEmail] = useState<string>('');
+    const [password, setPassword] = useState<string>('');
+    const [confirmPassword, setConfirmPassword] = useState<string>('');
+
+    const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        handleSubmit({ name, email, password, confirmPassword });
+        handleClose();
+    };
+
     return (
-        <div className={`modal ${show ? 'show d-block' : 'd-none'} fade`} tabIndex={-1}>
-            <div className="modal-dialog align-content-center">
-                <div className="modal-content modal-dark">
-                    <div className="modal-header">
-                        <h5 className="modal-title modal-title-big text-center">{title}</h5>
-                        <button type="button" className="btn-close btn-close-white" onClick={onClose}></button>
-                    </div>
-                    <div className="modal-body">
-                        <p>{body}</p>
-                    </div>
-                    <div className="modal-footer">
-                        <button type="button" className="btn btn-secondary btn-cancel text-black text-uppercase" onClick={onClose}>
-                            Cancelar
-                        </button>
-                        <button type="button" className="btn btn-primary btn-standard text-black text-uppercase">
+        <ModalForm show={show} onHide={handleClose}>
+            <ModalForm.Header className='modal-dark' closeButton>
+                <ModalForm.Title className='text-center'>Editar dados do usuário</ModalForm.Title>
+            </ModalForm.Header>
+            <ModalForm.Body className='modal-dark'>
+                <Form onSubmit={onSubmit}>
+                    <Form.Group className="mb-3" controlId="formName">
+                        <Form.Control
+                            type="text"
+                            placeholder="Nome:"
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
+                            required
+                        />
+                    </Form.Group>
+                    <Form.Group className="mb-3" controlId="formEmail">
+                        <Form.Control
+                            type="email"
+                            placeholder="E-mail:"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            required
+                        />
+                    </Form.Group>
+                    <Form.Group className="mb-3" controlId="formPassword">
+                        <Form.Control
+                            type="password"
+                            placeholder="Senha:"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                            required
+                        />
+                    </Form.Group>
+                    <Form.Group className="mb-3" controlId="formConfirmPassword">
+                        <Form.Control
+                            type="password"
+                            placeholder="Confirme sua senha:"
+                            value={confirmPassword}
+                            onChange={(e) => setConfirmPassword(e.target.value)}
+                            required
+                        />
+                    </Form.Group>
+                    <div className="form-buttons">
+                        <button type='button' className='btn btn-primary btn-standard text-black text-uppercase'>
                             Salvar dados
                         </button>
+                        <button type='button' className='btn btn-secondary btn-cancel text-black text-uppercase'>
+                            Cancelar
+                        </button>
                     </div>
-                </div>
-            </div>
-    </div>
+                </Form>
+            </ModalForm.Body>
+        </ModalForm>
     );
 }
 

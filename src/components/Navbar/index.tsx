@@ -4,14 +4,14 @@ import './style.css';
 // import { FaSearch } from 'react-icons/fa';
 
 const Navbar: React.FC = () => {
-  const [modalVisible, setModalVisible] = useState(false);
+  const [showModal, setShowModal] = useState<boolean>(false);
 
-  const handleOpenModal = () => {
-    setModalVisible(true);
-  };
+  const handleShow = () => setShowModal(true);
+  const handleClose = () => setShowModal(false);
 
-  const handleCloseModal = () => {
-    setModalVisible(false);
+  const handleSubmit = (formData: { name: string; email: string; password: string; confirmPassword: string }) => {
+    console.log('Form Submitted: ', formData);
+    // Escrever lógica
   };
 
   useEffect(() => {
@@ -49,10 +49,10 @@ const Navbar: React.FC = () => {
             </li>
           </ul>
           <div className="d-flex">
-            <a href="#" onClick={handleOpenModal}>
+            <a href="#" onClick={handleShow}>
               <div className="navbar-user">FD</div>
             </a>
-            <Modal show={modalVisible} title='Editar dados do usuário' body='Corpo da modal' onClose={handleCloseModal} />
+            <Modal show={showModal} handleClose={handleClose} handleSubmit={handleSubmit} />
           </div>
         </div>
       </div>

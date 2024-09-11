@@ -12,9 +12,9 @@ const SerieDetail: React.FC = () => {
 
     const settings = {
         dots: false,
-        infinite: false,
+        infinite: true,
         speed: 500,
-        slidesToShow: 5,
+        slidesToShow: 4,
         slidesToScroll: 4,
         initialSlide: 0,
         responsive: [
@@ -84,28 +84,54 @@ const SerieDetail: React.FC = () => {
                         <div className="slider-container carousel-container">
                             <Slider {...settings}>
                                 <div>
-                                    <img src={EpisodeThumb} alt="episode" />
+                                    <iframe 
+                                        src="https://www.youtube.com/watch?v=9McojMr8UiU" 
+                                        frameBorder="0"
+                                        width="230"
+                                        height="190"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                        allowFullScreen
+                                    ></iframe>
                                 </div>
                                 <div>
-                                    <img src={EpisodeThumb} alt="episode" />
+                                    <iframe 
+                                        src="https://www.youtube.com/watch?v=9McojMr8UiU" 
+                                        frameBorder="0"
+                                        width="230"
+                                        height="190"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                        allowFullScreen
+                                    ></iframe>
                                 </div>
                                 <div>
-                                    <img src={EpisodeThumb} alt="episode" />
+                                    <iframe 
+                                        src="https://www.youtube.com/watch?v=9McojMr8UiU" 
+                                        frameBorder="0"
+                                        width="230"
+                                        height="190"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                        allowFullScreen
+                                    ></iframe>
                                 </div>
                                 <div>
-                                    <img src={EpisodeThumb} alt="episode" />
+                                    <iframe 
+                                        src="https://www.youtube.com/watch?v=9McojMr8UiU" 
+                                        frameBorder="0"
+                                        width="230"
+                                        height="190"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                        allowFullScreen
+                                    ></iframe>
                                 </div>
                                 <div>
-                                    <img src={EpisodeThumb} alt="episode" />
-                                </div>
-                                <div>
-                                    <img src={EpisodeThumb} alt="episode" />
-                                </div>
-                                <div>
-                                    <img src={EpisodeThumb} alt="episode" />
-                                </div>
-                                <div>
-                                    <img src={EpisodeThumb} alt="episode" />
+                                    <iframe 
+                                        src="https://www.youtube.com/watch?v=9McojMr8UiU" 
+                                        frameBorder="0"
+                                        width="230"
+                                        height="190"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                        allowFullScreen
+                                    ></iframe>
                                 </div>
                             </Slider>
                         </div>
