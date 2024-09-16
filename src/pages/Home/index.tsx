@@ -15,7 +15,7 @@ const Home: React.FC = () => {
         dots: false,
         infinite: false,
         speed: 500,
-        slidesToShow: 7,
+        slidesToShow: 8,
         slidesToScroll: 4,
         initialSlide: 0,
         responsive: [
@@ -108,6 +108,9 @@ const Home: React.FC = () => {
                         </div>
                         <h3 className='fw-bold'>Séries Populares</h3>
                         <div className="serie-list">
+                            <SerieCard />
+                            <SerieCard />
+                            <SerieCard />
                             <SerieCard />
                             <SerieCard />
                             <SerieCard />

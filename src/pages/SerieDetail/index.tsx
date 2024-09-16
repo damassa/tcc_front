@@ -2,11 +2,9 @@ import React from 'react';
 import './style.scss';
 import PosterImage from '../../assets/images/Changeman.png';
 import AddFavoriteButton from '../../components/AddFavoriteButton';
-import { FaShareAlt } from 'react-icons/fa';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 import Slider from 'react-slick';
-import EpisodeThumb from '../../assets/images/episode_thumb.jpg';
 
 const SerieDetail: React.FC = () => {
 
@@ -14,8 +12,8 @@ const SerieDetail: React.FC = () => {
         dots: false,
         infinite: true,
         speed: 500,
-        slidesToShow: 4,
-        slidesToScroll: 4,
+        slidesToShow: 5,
+        slidesToScroll: 5,
         initialSlide: 0,
         responsive: [
         {
@@ -60,7 +58,6 @@ const SerieDetail: React.FC = () => {
                             </div>
                             <div className="detail-fav-share">
                                 <AddFavoriteButton />
-                                <FaShareAlt size={20} />
                             </div>
                         </div>
                         <div className="detail-plot">
@@ -81,59 +78,61 @@ const SerieDetail: React.FC = () => {
                                 <strong>Duração: 20 minutos</strong>
                             </div>
                         </div>
-                        <div className="slider-container carousel-container">
-                            <Slider {...settings}>
-                                <div>
-                                    <iframe 
-                                        src="https://www.youtube.com/watch?v=9McojMr8UiU" 
-                                        frameBorder="0"
-                                        width="230"
-                                        height="190"
-                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                        allowFullScreen
-                                    ></iframe>
-                                </div>
-                                <div>
-                                    <iframe 
-                                        src="https://www.youtube.com/watch?v=9McojMr8UiU" 
-                                        frameBorder="0"
-                                        width="230"
-                                        height="190"
-                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                        allowFullScreen
-                                    ></iframe>
-                                </div>
-                                <div>
-                                    <iframe 
-                                        src="https://www.youtube.com/watch?v=9McojMr8UiU" 
-                                        frameBorder="0"
-                                        width="230"
-                                        height="190"
-                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                        allowFullScreen
-                                    ></iframe>
-                                </div>
-                                <div>
-                                    <iframe 
-                                        src="https://www.youtube.com/watch?v=9McojMr8UiU" 
-                                        frameBorder="0"
-                                        width="230"
-                                        height="190"
-                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                        allowFullScreen
-                                    ></iframe>
-                                </div>
-                                <div>
-                                    <iframe 
-                                        src="https://www.youtube.com/watch?v=9McojMr8UiU" 
-                                        frameBorder="0"
-                                        width="230"
-                                        height="190"
-                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                        allowFullScreen
-                                    ></iframe>
-                                </div>
-                            </Slider>
+                        <div className="container-fluid p-5">
+                            <div className="slider-container carousel-container">
+                                <Slider {...settings}>
+                                    <div>
+                                        <iframe 
+                                            src="https://www.youtube.com/watch?v=9McojMr8UiU" 
+                                            frameBorder="0"
+                                            width="260"
+                                            height="190"
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                            allowFullScreen
+                                        ></iframe>
+                                    </div>
+                                    <div>
+                                        <iframe 
+                                            src="https://www.youtube.com/watch?v=9McojMr8UiU" 
+                                            frameBorder="0"
+                                            width="260"
+                                            height="190"
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                            allowFullScreen
+                                        ></iframe>
+                                    </div>
+                                    <div>
+                                        <iframe 
+                                            src="https://www.youtube.com/watch?v=9McojMr8UiU" 
+                                            frameBorder="0"
+                                            width="260"
+                                            height="190"
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                            allowFullScreen
+                                        ></iframe>
+                                    </div>
+                                    <div>
+                                        <iframe 
+                                            src="https://www.youtube.com/watch?v=9McojMr8UiU" 
+                                            frameBorder="0"
+                                            width="260"
+                                            height="190"
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                            allowFullScreen
+                                        ></iframe>
+                                    </div>
+                                    <div>
+                                        <iframe 
+                                            src="https://www.youtube.com/watch?v=9McojMr8UiU" 
+                                            frameBorder="0"
+                                            width="260"
+                                            height="190"
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                            allowFullScreen
+                                        ></iframe>
+                                    </div>
+                                </Slider>
+                            </div>
                         </div>
                     </div>
                 </div>
