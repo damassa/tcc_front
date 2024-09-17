@@ -68,3 +68,23 @@
     cursor: pointer;
     border: none;
 }
+
+.dropdown-menu {
+    background-color: #252625;
+}
+
+.dropdown-item:active {
+    background-color: #33212A;
+}
+
+.dropdown-transparent {
+    background-color: transparent;
+}
+
+.dropdown-item-bold {
+    font-weight: bolder;
+}
+
+.dropdown-item-email {
+    font-size: small;
+}

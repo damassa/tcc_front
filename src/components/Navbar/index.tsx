@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Modal from '../Modal';
-import './style.css';
+import './style.scss';
 // import { FaSearch } from 'react-icons/fa';
 
 const Navbar: React.FC = () => {
@@ -49,10 +49,21 @@ const Navbar: React.FC = () => {
             </li>
           </ul>
           <div className="d-flex">
-            <a href="#" onClick={handleShow}>
-              <div className="navbar-user">FD</div>
-            </a>
-            <Modal show={showModal} handleClose={handleClose} handleSubmit={handleSubmit} />
+            <div className="dropdown">
+              <button className="btn btn-secondary dropdown-toggle dropdown-transparent" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                FD
+              </button>
+              <ul className="dropdown-menu dropdown-menu-lg-end dropdown-menu-dark">
+                <li>
+                  <strong className='dropdown-item dropdown-item-bold'>Felipe Damasceno</strong>
+                  <h5 className='dropdown-item dropdown-item-email disabled'>felipelealdamasceno@gmail.com</h5>
+                </li>
+                <li><a className="dropdown-item" href="#" onClick={handleShow}>Minha conta</a></li>
+                <li><hr className="dropdown-divider" /></li>
+                <li><a className="dropdown-item" href="#">Sair</a></li>
+                <Modal show={showModal} handleClose={handleClose} handleSubmit={handleSubmit} />
+              </ul>
+            </div>
           </div>
         </div>
       </div>
