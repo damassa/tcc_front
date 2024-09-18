@@ -13,10 +13,14 @@ body {
   color: #f6f6f6;
 }
 
-.page-container {
+.page-container, .content {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
   align-content: space-between;
+}
+
+.content {
+  background-color: #33212A;
 }
 
