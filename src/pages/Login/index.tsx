@@ -12,26 +12,24 @@ const Login: React.FC = () => {
                 <div className="row justify-content-center">
                     <div className="row">
                         <div className="col-md-6">
-                            <img src={LoginImage} alt="Image" className='img-fluid' />
+                            <img src={LoginImage} alt="Image" className='img-fluid w-100' />
                         </div>
                         <div className="col-md-6">
-                            <div className="d-flex justify-content-center flex-column text-start login-wrapper">
+                            <div className="d-flex justify-content-center login-wrapper shadow">
                                 <div className="login-inner">
                                     <form>
                                         <h3 className='text-black'>Área de Login</h3>
                                         <div className="mb-3">
-                                            <label className='text-black'>E-mail</label>
                                             <input
                                                 type="email"
-                                                className="form-control"
+                                                className="form-control border-black"
                                                 placeholder="E-mail"
                                             />
                                         </div>
                                         <div className="mb-3">
-                                            <label className='text-black'>Senha</label>
                                             <input
                                                 type="password"
-                                                className="form-control"
+                                                className="form-control border-black"
                                                 placeholder="Senha"
                                             />
                                         </div>
