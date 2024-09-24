@@ -11,7 +11,7 @@ const Login: React.FC = () => {
             <div className="container-fluid p-5">
                 <div className="row justify-content-center">
                     <div className="row">
-                        <div className="col-md-6">
+                        <div className="col-md-6 shadow">
                             <img src={LoginImage} alt="Image" className='img-fluid w-100' />
                         </div>
                         <div className="col-md-6">
