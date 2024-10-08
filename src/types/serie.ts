@@ -1,4 +1,4 @@
-export interaface SerieProps {
+export type SerieResponse = {
     name: string;
     year: number;
     image: string;
@@ -7,5 +7,22 @@ export interaface SerieProps {
     plot: string;
     duration: number;
     category: string;
-    listOfEpisodes: episodeProps[];
+    listOfEpisodes: [];
+}
+
+export type Serie = {
+    name: string;
+    year: number;
+    image: string;
+    bigImage: string;
+    opening_video: string;
+    plot: string;
+    duration: number;
+    category: string;
+    listOfEpisodes: [];
+}
+
+export type SerieEntry = {
+    serie: Serie;
+    url: string;
 }
