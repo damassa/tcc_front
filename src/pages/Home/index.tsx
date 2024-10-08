@@ -6,10 +6,15 @@ import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 import SerieCard from '../../components/SerieCard';
 import LoadMoreButton from '../../components/LoadMoreButton';
+import { DefaultError, useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
+import { useState } from 'react';
+import { deleteSerie, getSeries } from '../../api/SerieApi';
 
+type SerieListProps = {
+    logOut?: () => void;
+};
 
-
-const Home: React.FC = () => {
+const Home: React.FC = ({ logOut }: SerieListProps) => {
 
     const settings = {
         dots: false,
@@ -45,6 +50,19 @@ const Home: React.FC = () => {
             }
         ]
     };
+
+    // const { data, error, isSuccess } = useQuery({
+    //     queryKey: ["series"],
+    //     queryFn: getSeries,
+    // });
+
+    // if (!isSuccess) {
+    //     return <p>Carregando...</p>;
+    // } else if (error) {
+    //     return <p>Erro no carregamento de dados...</p>;
+    // } else {
+        
+    // }
 
     return (
         <>
