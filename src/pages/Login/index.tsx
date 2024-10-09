@@ -18,7 +18,7 @@ const Login: React.FC = () => {
                             <div className="d-flex justify-content-center login-wrapper shadow">
                                 <div className="login-inner">
                                     <form>
-                                        <h3 className='text-black'>Área de Login</h3>
+                                        <h3 className='text-black'>World of Tokusatsu - Área de Login</h3>
                                         <div className="mb-3">
                                             <input
                                                 type="email"

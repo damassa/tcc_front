@@ -1,48 +1,41 @@
 import React from 'react';
+import RegisterButton from '../../components/RegisterButton';
 
-// import { Container } from './styles';
 
 const Register: React.FC = () => {
     return (
-        <form>
-                <h3>Sign Up</h3>
-                <div className="mb-3">
-                    <label>First name</label>
-                    <input
-                        type="text"
-                        className="form-control"
-                        placeholder="First name"
-                    />
+        <div className="page-container content">
+            <div className="container-fluid p-5">
+                <div className="row justify-content-center">
+                    <div className="col-md-6">
+                        <div className="d-flex justify-content-center login-wrapper shadow">
+                            <div className="login-inner">
+                                <form>
+                                    <h3 className="text-black">
+                                        World of Tokusatsu - Área de Registro
+                                    </h3>
+                                    <div className="mb-3">
+                                        <input type="text" className="form-control border-black" placeholder='Nome' />
+                                    </div>
+                                    <div className="mb-3">
+                                        <input type="email" className="form-control border-black" placeholder='E-mail' />
+                                    </div>
+                                    <div className="mb-3">
+                                        <input type="password" className="form-control border-black" placeholder='Senha' />
+                                    </div>
+                                    <div className="mb-3">
+                                        <input type="password" className="form-control border-black" placeholder='Confirme sua senha' />
+                                    </div>
+                                    <div className="d-grid">
+                                        <RegisterButton />
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div className="mb-3">
-                    <label>Last name</label>
-                    <input type="text" className="form-control" placeholder="Last name" />
-                </div>
-                <div className="mb-3">
-                    <label>Email address</label>
-                    <input
-                        type="email"
-                        className="form-control"
-                        placeholder="Enter email"
-                    />
-                </div>
-                <div className="mb-3">
-                    <label>Password</label>
-                    <input
-                        type="password"
-                        className="form-control"
-                        placeholder="Enter password"
-                    />
-                </div>
-                <div className="d-grid">
-                    <button type="submit" className="btn btn-primary">
-                        Sign Up
-                    </button>
-                </div>
-                <p className="forgot-password text-right">
-                    Already registered <a href="/sign-in">sign in?</a>
-                </p>
-        </form>
+            </div>
+        </div>
     );
 }
 

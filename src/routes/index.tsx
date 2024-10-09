@@ -4,6 +4,7 @@ import SerieDetail from '../pages/SerieDetail';
 import Categories from '../pages/Categories';
 import Login from '../pages/Login';
 import Favorites from '../pages/Favorites';
+import Register from '../pages/Register';
 
 const RoutesSite: React.FC = () => {
     return (
@@ -13,6 +14,7 @@ const RoutesSite: React.FC = () => {
                 <Route path='/detail' element={<SerieDetail />} />
                 <Route path='/categories' element={<Categories />} />
                 <Route path='/login' element={<Login />} />
+                <Route path='/register' element={<Register />} />
                 <Route path='/favorites' element={<Favorites />} />
             </Routes>
         </BrowserRouter>
