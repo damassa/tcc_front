@@ -1,90 +1,91 @@
 .navbar-purple {
-    background-color: #33212A;
-    box-shadow: 0 3px 10px rgba(43, 5, 33, 0.15);
-    transition: all ease .5s;
+  background-color: #57467b;
+  box-shadow: 0 3px 10px rgba(43, 5, 33, 0.15);
+  transition: all ease 0.5s;
 }
 
 .navbar-logo {
-    font-family: 'Genos', sans-serif;
-    font-size: 20px;
+  font-family: 'Genos', sans-serif;
+  font-size: 20px;
 }
 
-.navbar-logo, .d-flex a {
-    text-decoration: none;
-    color: #f6f6f6;
+.navbar-logo,
+.d-flex a {
+  text-decoration: none;
+  color: #f6f6f6;
 }
 
 .navbar-logo img {
-    height: 100%;
+  height: 100%;
 }
 
 .navbar-user {
-    width: 40px;
-    height: 40px;
-    background-color: #508F62;
-    border-radius: 50px;
-    font-size: 12px;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #f6f6f6;
+  width: 40px;
+  height: 40px;
+  background-color: #508f62;
+  border-radius: 50px;
+  font-size: 12px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #f6f6f6;
 }
 
 .navbar-user img {
-    height: 100%;
-    border-radius: 3px;
+  height: 100%;
+  border-radius: 3px;
 }
 
 .navbar-search {
-    width: 500px;
-    position: relative;
-    display: flex;
+  width: 500px;
+  position: relative;
+  display: flex;
 }
 
 .search-input {
-    width: 100%;
-    border: 1px solid #33212A;
-    border-right: none;
-    padding: 5px;
-    height: 30px;
-    border-radius: 5px 0 0 5px;
-    outline: none;
-    color: #252625;
-    font-family: 'Fira Sans', sans-serif;
+  width: 100%;
+  border: 1px solid #33212a;
+  border-right: none;
+  padding: 5px;
+  height: 30px;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  color: #252625;
+  font-family: 'Fira Sans', sans-serif;
 }
 
 .search-input:focus {
-    color: #252625;
+  color: #252625;
 }
 
 .search-button {
-    width: 40px;
-    height: 30px;
-    background-color: transparent;
-    color: #f6f6f6;
-    border-radius: 5px 0 0 5px;
-    font-size: 18px;
-    cursor: pointer;
-    border: none;
+  width: 40px;
+  height: 30px;
+  background-color: transparent;
+  color: #f6f6f6;
+  border-radius: 5px 0 0 5px;
+  font-size: 18px;
+  cursor: pointer;
+  border: none;
 }
 
 .dropdown-menu {
-    background-color: #252625;
+  background-color: #252625;
 }
 
 .dropdown-item:active {
-    background-color: #33212A;
+  background-color: #33212a;
 }
 
 .dropdown-transparent {
-    background-color: transparent;
+  background-color: transparent;
 }
 
 .dropdown-item-bold {
-    font-weight: bolder;
+  font-weight: bolder;
 }
 
 .dropdown-item-email {
-    font-size: small;
+  font-size: small;
 }

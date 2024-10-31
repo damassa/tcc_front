@@ -1,12 +1,12 @@
 export type CategoryResponse = {
-    name: string;
-}
+  name: string;
+};
 
 export type Category = {
-    name: string;
-}
+  name: string;
+};
 
 export type CategoryEntry = {
-    category: Category;
-    url: string;
-}
+  category: Category;
+  url: string;
+};

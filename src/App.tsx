@@ -1,10 +1,15 @@
-import RoutesSite from './routes'
-import './styles/global.css'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import RoutesSite from './routes';
+import './styles/global.css';
+
+const queryClient = new QueryClient();
 
 function App() {
   return (
-    <RoutesSite />
-  )
+    <QueryClientProvider client={queryClient}>
+      <RoutesSite />
+    </QueryClientProvider>
+  );
 }
 
-export default App
+export default App;

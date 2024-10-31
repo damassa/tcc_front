@@ -1,81 +1,80 @@
 .detail-container {
-    padding-top: 80px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  padding-top: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .detail-banner {
-    width: 100%;
-    position: relative;
+  width: 100%;
+  position: relative;
 }
 
 .detail-image-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .detail-image-container img {
-    object-fit: cover;
-    object-position: center;
+  object-fit: cover;
+  object-position: center;
 }
 
 .detail-shadow-container {
-    display: flex;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.4);
-    height: 215px;
-    margin-top: -200px;
-    position: relative;
-    padding: 0 30px;
-    flex-direction: column;
+  display: flex;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  height: 215px;
+  margin-top: -200px;
+  position: relative;
+  padding: 0 30px;
+  flex-direction: column;
 }
 
 .detail-name-year {
-    padding-top: 20px;
-    height: 130px;
-    line-height: 25px;
+  padding-top: 20px;
+  height: 130px;
+  line-height: 25px;
 }
 
 .detail-fav-share {
-    width: 25%;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    padding: 25px 0;
+  width: 25%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 25px 0;
 }
 
 .detail-shadow-container h1 {
-    font-size: 48px;
+  font-size: 48px;
 }
 
 .detail-shadow-container h2 {
-    font-size: 36px;
+  font-size: 36px;
 }
 
 .detail-plot {
-    padding: 30px;
+  padding: 30px;
 }
 
 .detail-info {
-    padding: 0 30px;
-    display: flex;
-    align-items: center;
+  padding: 0 30px;
+  display: flex;
+  align-items: center;
 }
 
 .detail-data {
-    display: flex;
-    flex-direction: column;
-    padding: 0 20px;
-    justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+  padding: 0 20px;
+  justify-content: space-between;
 }
 
 .detail-data strong {
-    margin: 25px;
-    font-size: 24px;
+  margin: 25px;
+  font-size: 24px;
 }
 
 .detail--info--image {
-    
 }
