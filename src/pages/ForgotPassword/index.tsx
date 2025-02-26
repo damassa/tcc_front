@@ -1,7 +1,5 @@
 import React from 'react';
 
-import RecoverPasswordButton from '../../components/RecoverPasswordButton';
-
 const ForgotPassword: React.FC = () => {
   return (
     <div className="page-container content">
@@ -44,7 +42,7 @@ const ForgotPassword: React.FC = () => {
                   </div>
                   <div className="col-12">
                     <div className="d-grid">
-                      <RecoverPasswordButton />
+                      <button className="recoverPassword--button">Recuperar senha</button>;
                     </div>
                   </div>
                 </div>

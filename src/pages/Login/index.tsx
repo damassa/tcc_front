@@ -1,52 +1,104 @@
-import React from 'react';
+// import { Credential } from '../../types/types';
+
+import React, { FormEvent, useState } from 'react';
 import './style.scss';
-
 import LoginImage from '../../assets/images/undraw_home_cinema_l7yl.svg';
-import LoginButton from '../../components/LoginButton';
+import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import api from '../../api/api';
 
+/**
+ * Login component for user authentication
+ * @returns JSX.Element
+ */
 const Login: React.FC = () => {
+  const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+  // State for storing user credentials
+  const [credential, setCredential] = useState<{ email: string; password: string }>({
+    email: '',
+    password: '',
+  });
+
+  const navigate = useNavigate();
+
+  /**
+   * Handle changes in input fields
+   * @param event - React change event
+   */
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    console.log(`Input changed: ${event.target.name} = ${event.target.value}`);
+    setCredential({ ...credential, [event.target.name]: event.target.value });
+  };
+
+  /**
+   * Handle form submission
+   * @param event - React submit event
+   */
+  const handleSubmit = async (event: FormEvent) => {
+    event.preventDefault();
+    console.log('Form submitted:', credential);
+    // Handle login logic
+    try {
+      console.log(credential.email, credential.password);
+      const response = await api.post(`/api/v1/login`, {
+        email: credential.email,
+        senha: credential.password,
+      });
+      const { token } = response.data;
+      console.log('Data received:', response.data);
+
+      localStorage.setItem('jwt', token);
+      navigate('/');
+    } catch (error) {
+      // Handle login error
+      setError('Login failed. Please check your credentials.');
+      console.error('Login failed:', error);
+    }
+  };
+
   return (
     <div className="page-container content">
       <section className="vh-100">
         <div className="container py-5 h-100">
           <div className="row d-flex align-items-center justify-content-center h-100">
             <div className="col-md-8 col-lg-7 col-xl-6">
+              {/* Display login image */}
               <img src={LoginImage} className="img-fluid" alt="Home image" />
             </div>
             <div className="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
               <div className="login-inner">
-                <form action="">
+                {/* Login form */}
+                <form action="" method="post" onSubmit={handleSubmit}>
                   <h3 className="text-black">World of Tokusatsu - Área de Login</h3>
                   <div className="form-outline mb-4">
                     <input
                       type="email"
                       id="form"
+                      name="email"
                       className="form-control form-control-lg border-black"
                       placeholder="E-mail"
+                      required
+                      onChange={handleChange} // Handle input change
                     />
                   </div>
                   <div className="form-outline mb-4">
                     <input
                       type="password"
+                      name="password"
                       className="form-control form-control-lg border-black"
                       placeholder="Senha"
+                      required
+                      onChange={handleChange} // Handle input change
                     />
                   </div>
-                  <div className="mb-3">
-                    <div className="custom-control custom-checkbox">
-                      <input
-                        type="checkbox"
-                        className="custom-control-input"
-                        id="customCheck1"
-                        checked
-                      />
-                      <label className="custom-control-label text-black" htmlFor="customCheck1">
-                        Lembrar-se de mim
-                      </label>
-                    </div>
-                  </div>
+                  <div className="mb-3"></div>
                   <div className="d-grid">
-                    <LoginButton />
+                    {/* Submit button */}
+                    <button type="submit" className="login--button">
+                      LOGIN
+                    </button>
                   </div>
                   <p className="forgot-password text-right text-black">
                     Esqueceu sua senha? Clique <a href="/forgotPassword">aqui</a>
@@ -61,54 +113,6 @@ const Login: React.FC = () => {
         </div>
       </section>
     </div>
-    // <div className="page-container content">
-    //   <div className="container-fluid p-5">
-    //     <div className="row justify-content-center">
-    //       <div className="row">
-    //         <div className="col-md-6 shadow">
-    //           <img src={LoginImage} alt="Image" className="img-fluid w-100" />
-    //         </div>
-    //         <div className="col-md-6">
-    //           <div className="d-flex justify-content-center login-wrapper shadow">
-    //             <div className="login-inner">
-    //               <form>
-    //                 <h3 className="text-black">World of Tokusatsu - Área de Login</h3>
-    //                 <div className="mb-3">
-    //                   <input
-    //                     type="email"
-    //                     className="form-control border-black"
-    //                     placeholder="E-mail"
-    //                   />
-    //                 </div>
-    //                 <div className="mb-3">
-    //                   <input
-    //                     type="password"
-    //                     className="form-control border-black"
-    //                     placeholder="Senha"
-    //                   />
-    //                 </div>
-    //                 <div className="mb-3">
-    //                   <div className="custom-control custom-checkbox">
-    //                     <input type="checkbox" className="custom-control-input" id="customCheck1" />
-    //                     <label className="custom-control-label text-black" htmlFor="customCheck1">
-    //                       Lembrar-se de mim
-    //                     </label>
-    //                   </div>
-    //                 </div>
-    //                 <div className="d-grid">
-    //                   <LoginButton />
-    //                 </div>
-    //                 <p className="forgot-password text-right text-black">
-    //                   Esqueceu sua senha? Clique <a href="#">aqui</a>
-    //                 </p>
-    //               </form>
-    //             </div>
-    //           </div>
-    //         </div>
-    //       </div>
-    //     </div>
-    //   </div>
-    // </div>
   );
 };
 

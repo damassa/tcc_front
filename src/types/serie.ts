@@ -1,29 +1,21 @@
-export type SerieResponse = {
-  name: string;
-  year: number;
-  image: string;
-  bigImage: string;
-  opening_video: string;
-  plot: string;
-  duration: number;
-  category: string;
-  listOfEpisodes: [];
-};
-
-export type Serie = {
-  id: number;
-  name: string;
-  image: string;
-  // year: number;
-  // bigImage: string;
-  // opening_video: string;
-  // plot: string;
-  // duration: number;
-  // category: string;
-  // listOfEpisodes: [];
-};
-
-export type SerieEntry = {
-  serie: Serie;
-  url: string;
-};
+export class SerieResponse {
+  constructor(
+    public uid: number,
+    public name: string,
+    public year: number,
+    public image: string,
+    public bigImage: string,
+    public opening_video: string,
+    public plot: string,
+    public duration: number,
+  ) {
+    this.uid = uid;
+    this.name = name;
+    this.year = year;
+    this.image = image;
+    this.bigImage = bigImage;
+    this.opening_video = opening_video;
+    this.plot = plot;
+    this.duration = duration;
+  }
+}

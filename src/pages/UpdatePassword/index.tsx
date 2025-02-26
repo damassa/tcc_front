@@ -1,8 +1,6 @@
 import React from 'react';
 import './style.scss';
 
-import UpdatePasswordButton from '../../components/UpdatePasswordButton';
-
 const UpdatePassword: React.FC = () => {
   return (
     <div className="page-container content">
@@ -43,7 +41,7 @@ const UpdatePassword: React.FC = () => {
                   </div>
                   <div className="col-12">
                     <div className="d-grid">
-                      <UpdatePasswordButton />
+                      <button className="updatePassword--button">Atualizar senha</button>
                     </div>
                   </div>
                 </div>

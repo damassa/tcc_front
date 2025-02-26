@@ -1,5 +1,4 @@
 import React from 'react';
-import RegisterButton from '../../components/RegisterButton';
 
 const Register: React.FC = () => {
   return (
@@ -36,7 +35,7 @@ const Register: React.FC = () => {
                     />
                   </div>
                   <div className="d-grid">
-                    <RegisterButton />
+                    <button className="register--button">CRIAR CONTA</button>
                   </div>
                 </form>
               </div>
