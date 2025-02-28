@@ -2,7 +2,7 @@ import React from 'react';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 import Button from '../../components/LoadMoreButton';
-import SerieCard from '../../components/SerieCard';
+import SerieCard from '../../components/Carousel';
 
 // import { Container } from './styles';
 

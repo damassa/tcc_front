@@ -41,13 +41,11 @@ const Login: React.FC = () => {
     console.log('Form submitted:', credential);
     // Handle login logic
     try {
-      console.log(credential.email, credential.password);
       const response = await api.post(`/api/v1/login`, {
         email: credential.email,
         senha: credential.password,
       });
       const { token } = response.data;
-      console.log('Data received:', response.data);
 
       localStorage.setItem('jwt', token);
       navigate('/');

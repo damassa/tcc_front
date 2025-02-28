@@ -1,6 +1,6 @@
 import React from 'react';
 import Navbar from '../../components/Navbar';
-import SerieCard from '../../components/SerieCard';
+import SerieCard from '../../components/Carousel';
 import Button from '../../components/LoadMoreButton';
 import Footer from '../../components/Footer';
 
