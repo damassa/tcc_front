@@ -38,7 +38,7 @@ const Login: React.FC = () => {
    */
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault();
-    console.log('Form submitted:', credential);
+
     // Handle login logic
     try {
       const response = await api.post(`/api/v1/login`, {
@@ -46,7 +46,6 @@ const Login: React.FC = () => {
         senha: credential.password,
       });
       const { token } = response.data;
-
       localStorage.setItem('jwt', token);
       navigate('/');
     } catch (error) {

@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import Modal from '../Modal';
 import './style.scss';
+import { useNavigate } from 'react-router-dom';
+import api from '../../api/api';
 // import { FaSearch } from 'react-icons/fa';
 
 const Navbar: React.FC = () => {
   const [showModal, setShowModal] = useState<boolean>(false);
+  const navigate = useNavigate();
 
   const handleShow = () => setShowModal(true);
   const handleClose = () => setShowModal(false);
@@ -36,6 +39,11 @@ const Navbar: React.FC = () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
+
+  const handleLogout = () => {
+    localStorage.removeItem('jwt');
+    navigate('/login');
+  };
 
   return (
     <nav className="navbar navbar-expand-lg fixed-top navbar-dark">
@@ -93,9 +101,9 @@ const Navbar: React.FC = () => {
                   <hr className="dropdown-divider" />
                 </li>
                 <li>
-                  <a className="dropdown-item" href="#">
+                  <button onClick={handleLogout} className="dropdown-item">
                     Sair
-                  </a>
+                  </button>
                 </li>
                 <Modal show={showModal} handleClose={handleClose} handleSubmit={handleSubmit} />
               </ul>

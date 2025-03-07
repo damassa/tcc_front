@@ -4,100 +4,21 @@ import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 import Carousel from '../../components/Carousel';
 import LoadMoreButton from '../../components/LoadMoreButton';
+import { useEffect, useState } from 'react';
+import { SerieResponse } from '../../types/serie';
+import { getSeries } from '../../api/SerieApi';
 
 const Home: React.FC = () => {
-  // const filteredData = [
-  //   {
-  //     id: 1,
-  //     name: 'Himitsu Sentai Gorenger',
-  //     image: 'https://tinyurl.com/3rvedd47',
-  //   },
-  //   {
-  //     id: 2,
-  //     name: 'J.A.K.Q Dengekitai',
-  //     image: 'https://tinyurl.com/3rvedd47',
-  //   },
-  //   {
-  //     id: 1,
-  //     name: 'Himitsu Sentai Gorenger',
-  //     image: 'https://tinyurl.com/3rvedd47',
-  //   },
-  //   {
-  //     id: 2,
-  //     name: 'J.A.K.Q Dengekitai',
-  //     image: 'https://tinyurl.com/3rvedd47',
-  //   },
-  //   {
-  //     id: 1,
-  //     name: 'Himitsu Sentai Gorenger',
-  //     image: 'https://tinyurl.com/3rvedd47',
-  //   },
-  //   {
-  //     id: 2,
-  //     name: 'J.A.K.Q Dengekitai',
-  //     image: 'https://tinyurl.com/3rvedd47',
-  //   },
-  //   {
-  //     id: 1,
-  //     name: 'Himitsu Sentai Gorenger',
-  //     image: 'https://tinyurl.com/3rvedd47',
-  //   },
-  //   {
-  //     id: 2,
-  //     name: 'J.A.K.Q Dengekitai',
-  //     image: 'https://tinyurl.com/3rvedd47',
-  //   },
-  //   {
-  //     id: 1,
-  //     name: 'Himitsu Sentai Gorenger',
-  //     image: 'https://tinyurl.com/3rvedd47',
-  //   },
-  //   {
-  //     id: 2,
-  //     name: 'J.A.K.Q Dengekitai',
-  //     image: 'https://tinyurl.com/3rvedd47',
-  //   },
-  //   {
-  //     id: 1,
-  //     name: 'Himitsu Sentai Gorenger',
-  //     image: 'https://tinyurl.com/3rvedd47',
-  //   },
-  //   {
-  //     id: 2,
-  //     name: 'J.A.K.Q Dengekitai',
-  //     image: 'https://tinyurl.com/3rvedd47',
-  //   },
-  //   {
-  //     id: 1,
-  //     name: 'Himitsu Sentai Gorenger',
-  //     image: 'https://tinyurl.com/3rvedd47',
-  //   },
-  //   {
-  //     id: 2,
-  //     name: 'J.A.K.Q Dengekitai',
-  //     image: 'https://tinyurl.com/3rvedd47',
-  //   },
-  //   {
-  //     id: 1,
-  //     name: 'Himitsu Sentai Gorenger',
-  //     image: 'https://tinyurl.com/3rvedd47',
-  //   },
-  //   {
-  //     id: 2,
-  //     name: 'J.A.K.Q Dengekitai',
-  //     image: 'https://tinyurl.com/3rvedd47',
-  //   },
-  //   {
-  //     id: 1,
-  //     name: 'Himitsu Sentai Gorenger',
-  //     image: 'https://tinyurl.com/3rvedd47',
-  //   },
-  //   {
-  //     id: 2,
-  //     name: 'J.A.K.Q Dengekitai',
-  //     image: 'https://tinyurl.com/3rvedd47',
-  //   },
-  // ];
+  const [series, setSeries] = useState<SerieResponse[]>([]);
+
+  useEffect(() => {
+    const fetchSeries = async () => {
+      const arr = await getSeries();
+      setSeries(arr);
+    };
+
+    fetchSeries();
+  }, []);
 
   return (
     <>
@@ -116,7 +37,16 @@ const Home: React.FC = () => {
           <Carousel />
           <h3 className="fw-bold">Séries Populares</h3>
           <div className="serie-list">
-            <div className="serie-card">HEHEHEHEHEHEHEHEHE</div>
+            {series.map((serie) => (
+              <div className="serie-card" key={serie.id}>
+                <img
+                  className="d-block w-100"
+                  src={serie.image}
+                  alt={serie.name}
+                  title={serie.name}
+                />
+              </div>
+            ))}
           </div>
           <div className="text-center my-3">
             <LoadMoreButton />

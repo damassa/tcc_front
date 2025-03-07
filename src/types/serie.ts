@@ -1,6 +1,6 @@
 export class SerieResponse {
   constructor(
-    public uid: number,
+    public id: number,
     public name: string,
     public year: number,
     public image: string,
@@ -8,7 +8,7 @@ export class SerieResponse {
     public opening_video: string,
     public plot: string,
   ) {
-    this.uid = uid;
+    this.id = id;
     this.name = name;
     this.year = year;
     this.image = image;

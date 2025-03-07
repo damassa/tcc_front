@@ -1,24 +1,38 @@
 import React, { useEffect } from 'react';
-import api from '../../api/api';
 import Slider from 'react-slick';
 import { Link } from 'react-router-dom';
 import { SerieResponse } from '../../types/serie';
 import './style.css';
+import { getSeriesOrderedByYear } from '../../api/SerieApi';
 
 const Carousel: React.FC = () => {
   const [series, setSeries] = React.useState<SerieResponse[]>([]);
+  // const [loading, setLoading] = React.useState(true);
 
   useEffect(() => {
-    api
-      .get('/api/v1/series')
-      .then((response) => {
-        setSeries(response.data);
-        console.log('DADOS PASSADOS', response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, [series]);
+    const fetchSeries = async () => {
+      const arr = await getSeriesOrderedByYear();
+      setSeries(arr);
+    };
+
+    fetchSeries();
+  }, []);
+
+  // useEffect(() => {
+  //   api
+  //     .get('/api/v1/series', {
+  //       headers: {
+  //         Authorization: `Bearer ${localStorage.getItem('jwt')}`,
+  //       },
+  //     })
+  //     .then((response) => {
+  //       console.log('DADOS PASSADOS', response.data.content);
+  //       setSeries(response.data.content);
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     });
+  // }, []);
 
   const settings = {
     dots: false,
@@ -58,8 +72,8 @@ const Carousel: React.FC = () => {
   return (
     <Slider {...settings}>
       {series.map((serie) => (
-        <div key={serie.uid}>
-          <Link to={`/detail/${serie.uid}`}>
+        <div key={serie.id}>
+          <Link to={`/detail/${serie.id}`}>
             <div className="serie-card">
               <img
                 className="d-block w-100"
@@ -67,7 +81,6 @@ const Carousel: React.FC = () => {
                 alt={serie.name}
                 title={serie.name}
               />
-              <p>{serie.name}</p>
             </div>
           </Link>
         </div>
