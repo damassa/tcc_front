@@ -32,6 +32,21 @@ export const getSeriesOrderedByYear = async (): Promise<SerieResponse[]> => {
   return [];
 };
 
+export const getSerieById = async (id: number): Promise<SerieResponse> => {
+  const response = await api
+    .get<SerieResponse>(`/api/v1/series/${id}`, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('jwt')}`,
+      },
+    })
+    .catch((error) => {
+      console.error(error);
+      throw error;
+    });
+
+  return response.data;
+};
+
 // Deleta uma série
 // export const deleteSerie = async (link: string): Promise<SerieResponse> => {
 //   const res = await axios.delete(link, getAxiosConfig());

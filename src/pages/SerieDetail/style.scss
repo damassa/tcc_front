@@ -17,8 +17,11 @@
 }
 
 .detail-image-container img {
+  width: 100%;
+  height: auto;
   object-fit: cover;
   object-position: center;
+  background-blend-mode: multiply;
 }
 
 .detail-shadow-container {
@@ -76,5 +79,15 @@
   font-size: 24px;
 }
 
-.detail--info--image {
+.detail-info-image {
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.detail-image-card {
+  width: 100%;
+  max-width: 11.875rem;
+  height: auto;
+  object-fit: cover;
+  object-position: center;
 }

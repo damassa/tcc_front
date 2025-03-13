@@ -7,18 +7,33 @@ import LoadMoreButton from '../../components/LoadMoreButton';
 import { useEffect, useState } from 'react';
 import { SerieResponse } from '../../types/serie';
 import { getSeries } from '../../api/SerieApi';
+import Loading from '../../components/Loading';
+import { Link } from 'react-router-dom';
 
 const Home: React.FC = () => {
   const [series, setSeries] = useState<SerieResponse[]>([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchSeries = async () => {
-      const arr = await getSeries();
-      setSeries(arr);
+      try {
+        const arr = await getSeries();
+        if (arr.length) {
+          setSeries(arr);
+        }
+      } catch (error) {
+        console.error('Failed to fetch series', error);
+      } finally {
+        setLoading(false);
+      }
     };
 
     fetchSeries();
   }, []);
+
+  if (loading) {
+    return <Loading />;
+  }
 
   return (
     <>
@@ -39,12 +54,14 @@ const Home: React.FC = () => {
           <div className="serie-list">
             {series.map((serie) => (
               <div className="serie-card" key={serie.id}>
-                <img
-                  className="d-block w-100"
-                  src={serie.image}
-                  alt={serie.name}
-                  title={serie.name}
-                />
+                <Link to={`/detail/${serie.id}`}>
+                  <img
+                    className="d-block w-100"
+                    src={serie.image}
+                    alt={serie.name}
+                    title={serie.name}
+                  />
+                </Link>
               </div>
             ))}
           </div>

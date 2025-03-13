@@ -32,3 +32,20 @@
 //   const res = await axios.put(categoryEntry.url, categoryEntry.category, getAxiosConfig());
 //   return res.data;
 // };
+
+import api from './api';
+import { CategoryResponse } from '../types/category';
+
+export const getCategories = async (): Promise<CategoryResponse[]> => {
+  try {
+    const response = await api.get('/api/v1/categories', {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('jwt')}`,
+      },
+    });
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
+  return [];
+};

@@ -1,12 +1,27 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './style.scss';
-import PosterImage from '../../assets/images/Changeman.png';
 import AddFavoriteButton from '../../components/AddFavoriteButton';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 import Slider from 'react-slick';
+import { SerieResponse } from '../../types/serie';
+import { useParams } from 'react-router-dom';
+import { getSerieById } from '../../api/SerieApi';
 
 const SerieDetail: React.FC = () => {
+  const [serie, setSerie] = useState<SerieResponse>();
+  const { id } = useParams();
+
+  useEffect(() => {
+    const fetchSerie = async () => {
+      const response = await getSerieById(Number(id));
+      setSerie(response);
+    };
+
+    // const fetchEpisodes = async () => {};
+    fetchSerie();
+  });
+
   const settings = {
     dots: false,
     infinite: true,
@@ -48,96 +63,43 @@ const SerieDetail: React.FC = () => {
       <div className="page-container">
         <div className="detail-banner">
           <div className="detail-image-container">
-            <img src={PosterImage} alt="" />
+            <img src={serie?.bigImage} alt="" />
           </div>
           <div className="detail-shadow-container">
             <div className="detail-name-year">
-              <h1 className="fw-bold">Dengeki Sentai Changeman</h1>
-              <h2 className="fw-bold">1985</h2>
+              <h1 className="fw-bold">{serie?.name}</h1>
+              <h2 className="fw-bold">{serie?.year}</h2>
             </div>
             <div className="detail-fav-share">
               <AddFavoriteButton />
             </div>
           </div>
           <div className="detail-plot">
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed dignissim mi, ac
-              tincidunt risus. Donec nec arcu erat. Vestibulum nec felis rhoncus eros laoreet
-              pretium in a massa. Sed pharetra ligula vitae nisi dictum, vel sodales sapien semper.
-              Fusce imperdiet, sapien ac posuere consectetur, ante mauris ornare risus, in porttitor
-              mi lacus a nisi. Mauris rhoncus iaculis placerat. Nullam turpis arcu, malesuada vitae
-              est at, vestibulum faucibus arcu. Ut nec odio ultricies, viverra ligula ut, hendrerit
-              mauris. Ut semper, mi ut efficitur auctor, sem eros tempor lacus, vel facilisis elit
-              velit vulputate arcu.
-            </p>
+            <p>{serie?.plot}</p>
           </div>
           <div className="detail-info">
             <div className="detail-info-image">
-              <img
-                src="https://media.fstatic.com/y9en3f1_mvlP9mSZ_gAAhl0TSHE=/210x312/smart/filters:format(webp)/media/movies/covers/2010/01/ae29d514be77f161a1cedbcc4bbd3ec0.jpg"
-                alt="Serie"
-              />
+              <img className="detail-image-card" src={serie?.image} alt="Serie" />
             </div>
             <div className="detail-data">
-              <strong>Nome Completo: Dengeki Sentai Changeman</strong>
-              <strong>Categoria: Super Sentai</strong>
-              <strong>Ano: 1985</strong>
-              <strong>Duração: 20 minutos</strong>
+              <strong>Nome Completo: {serie?.name}</strong>
+              <strong>Categoria: {serie?.category}</strong>
+              <strong>Ano: {serie?.year}</strong>
             </div>
           </div>
           <div className="container-fluid p-5">
             <div className="slider-container carousel-container">
               <Slider {...settings}>
-                <div>
+                {/* <div>
                   <iframe
-                    src="https://www.youtube.com/watch?v=9McojMr8UiU"
+                    src="https://www.youtube.com/embed/9McojMr8UiU"
                     frameBorder="0"
                     width="260"
                     height="190"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
                   ></iframe>
-                </div>
-                <div>
-                  <iframe
-                    src="https://www.youtube.com/watch?v=9McojMr8UiU"
-                    frameBorder="0"
-                    width="260"
-                    height="190"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                  ></iframe>
-                </div>
-                <div>
-                  <iframe
-                    src="https://www.youtube.com/watch?v=9McojMr8UiU"
-                    frameBorder="0"
-                    width="260"
-                    height="190"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                  ></iframe>
-                </div>
-                <div>
-                  <iframe
-                    src="https://www.youtube.com/watch?v=9McojMr8UiU"
-                    frameBorder="0"
-                    width="260"
-                    height="190"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                  ></iframe>
-                </div>
-                <div>
-                  <iframe
-                    src="https://www.youtube.com/watch?v=9McojMr8UiU"
-                    frameBorder="0"
-                    width="260"
-                    height="190"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                  ></iframe>
-                </div>
+                </div> */}
               </Slider>
             </div>
           </div>

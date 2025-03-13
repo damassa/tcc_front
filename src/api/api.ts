@@ -10,12 +10,12 @@ const api = axios.create({
 export default api;
 
 // export const getAxiosConfig = (): AxiosRequestConfig => {
-//   const token = sessionStorage.getItem('jwt');
+//   const token = localStorage.getItem('jwt');
 //   return {
 //     headers: {
 //       Authorization: token,
 //       'Content-Type': 'application/json',
-//       'Access-Control-Allow-Origin': 'http://localhost:5173',
+//       'Access-Control-Allow-Origin': 'http://localhost:3000',
 //     },
 //   };
 // };
