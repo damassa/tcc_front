@@ -10,29 +10,13 @@ const Carousel: React.FC = () => {
   // const [loading, setLoading] = React.useState(true);
 
   useEffect(() => {
-    const fetchSeries = async () => {
+    const fetchSeriesByYear = async () => {
       const arr = await getSeriesOrderedByYear();
       setSeries(arr);
     };
 
-    fetchSeries();
+    fetchSeriesByYear();
   }, []);
-
-  // useEffect(() => {
-  //   api
-  //     .get('/api/v1/series', {
-  //       headers: {
-  //         Authorization: `Bearer ${localStorage.getItem('jwt')}`,
-  //       },
-  //     })
-  //     .then((response) => {
-  //       console.log('DADOS PASSADOS', response.data.content);
-  //       setSeries(response.data.content);
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //     });
-  // }, []);
 
   const settings = {
     dots: false,

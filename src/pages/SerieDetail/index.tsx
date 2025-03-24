@@ -83,7 +83,7 @@ const SerieDetail: React.FC = () => {
             </div>
             <div className="detail-data">
               <strong>Nome Completo: {serie?.name}</strong>
-              <strong>Categoria: {serie?.category}</strong>
+              <strong>Categoria: {serie?.categoryName}</strong>
               <strong>Ano: {serie?.year}</strong>
             </div>
           </div>

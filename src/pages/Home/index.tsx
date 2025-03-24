@@ -6,7 +6,7 @@ import Carousel from '../../components/Carousel';
 import LoadMoreButton from '../../components/LoadMoreButton';
 import { useEffect, useState } from 'react';
 import { SerieResponse } from '../../types/serie';
-import { getSeries } from '../../api/SerieApi';
+import { getAllSeries } from '../../api/SerieApi';
 import Loading from '../../components/Loading';
 import { Link } from 'react-router-dom';
 
@@ -17,7 +17,7 @@ const Home: React.FC = () => {
   useEffect(() => {
     const fetchSeries = async () => {
       try {
-        const arr = await getSeries();
+        const arr = await getAllSeries();
         if (arr.length) {
           setSeries(arr);
         }

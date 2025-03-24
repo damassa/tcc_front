@@ -2,20 +2,23 @@ import { SerieResponse } from '../types/serie';
 import api from './api';
 
 // Busca todas as séries
-export const getSeries = async (): Promise<SerieResponse[]> => {
+export const getAllSeries = async (): Promise<SerieResponse[]> => {
   try {
     const response = await api.get('/api/v1/series', {
       headers: {
         Authorization: `Bearer ${localStorage.getItem('jwt')}`,
       },
     });
-    return response.data.content;
+    const series = response.data.content;
+    const randomOrderedSeries = series.sort(() => Math.random() - 0.5);
+    return randomOrderedSeries;
   } catch (error) {
     console.error(error);
   }
   return [];
 };
 
+// Busca todas as séries ordenadas por ano (da mais recente até a mais antiga)
 export const getSeriesOrderedByYear = async (): Promise<SerieResponse[]> => {
   try {
     const response = await api.get('/api/v1/series', {
@@ -24,14 +27,17 @@ export const getSeriesOrderedByYear = async (): Promise<SerieResponse[]> => {
       },
     });
     const series = response.data.content;
-    series.sort((a: { year: number }, b: { year: number }) => b.year - a.year);
-    return series;
+    const orderedSeries = series.sort(
+      (a: { year: number }, b: { year: number }) => b.year - a.year,
+    );
+    return orderedSeries;
   } catch (error) {
     console.error(error);
   }
   return [];
 };
 
+// Busca uma série pelo identificador (específico para detalhe da série)
 export const getSerieById = async (id: number): Promise<SerieResponse> => {
   const response = await api
     .get<SerieResponse>(`/api/v1/series/${id}`, {
@@ -45,6 +51,26 @@ export const getSerieById = async (id: number): Promise<SerieResponse> => {
     });
 
   return response.data;
+};
+
+export const toggleFavoriteSerie = async () => {};
+
+export const getFavoriteSeries = async (): Promise<SerieResponse[]> => {
+  try {
+    console.log('passou aqui');
+    const response = await api.get('/api/v1/users/me/favorites', {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('jwt')}`,
+      },
+    });
+    console.log(response);
+    const favorites = response.data.content;
+    console.log(favorites);
+    return favorites;
+  } catch (error) {
+    console.error(error);
+  }
+  return [];
 };
 
 // Deleta uma série

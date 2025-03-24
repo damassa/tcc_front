@@ -1,15 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 import { CategoryResponse } from '../../types/category';
-import { getCategories } from '../../api/CategoryApi';
+// import { getCategories, getCategoriesWithSeries } from '../../api/CategoryApi';
 import Loading from '../../components/Loading';
+import { Link } from 'react-router-dom';
+import { getCategories, getSeriesByCategory } from '../../api/CategoryApi';
 
 // import { Container } from './styles';
 
 const Categories: React.FC = () => {
   const [categories, setCategories] = useState<CategoryResponse[]>([]);
-  // const [series, setSeries] = useState([]);
+  const [categoryWithSeries, setCategoryWithSeries] = useState({});
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -28,6 +30,22 @@ const Categories: React.FC = () => {
     fetchCategories();
   }, []);
 
+  useEffect(() => {
+    if (!categories.length) return;
+
+    const fetchSeriesFromCategory = async () => {
+      const data = {};
+      await Promise.all(
+        categories.map(async (category) => {
+          const series = await getSeriesByCategory(category.id);
+          data[category.id] = series;
+        }),
+      );
+      setCategoryWithSeries(data);
+    };
+    fetchSeriesFromCategory();
+  }, [categories]);
+
   if (loading) {
     return <Loading />;
   }
@@ -39,9 +57,21 @@ const Categories: React.FC = () => {
         {categories.map((category) => (
           <div key={category.id} className="container-fluid p-5">
             <h3 className="fw-bold">{category.name}</h3>
-            {/* <div className="serie-list">
-              {series}
-            </div> */}
+            <div className="serie-list">
+              {categoryWithSeries[category.id] &&
+                categoryWithSeries[category.id].map((serie) => (
+                  <div key={serie.id} className="serie-card">
+                    <Link to={`/detail/${serie.id}`}>
+                      <img
+                        className="d-block w-100"
+                        src={serie.image}
+                        alt={serie.name}
+                        title={serie.name}
+                      />
+                    </Link>
+                  </div>
+                ))}
+            </div>
           </div>
         ))}
       </div>

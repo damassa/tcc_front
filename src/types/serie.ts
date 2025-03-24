@@ -7,7 +7,7 @@ export class SerieResponse {
     public bigImage: string,
     public opening_video: string,
     public plot: string,
-    public category: number,
+    public categoryName: string,
   ) {
     this.id = id;
     this.name = name;
@@ -16,6 +16,6 @@ export class SerieResponse {
     this.bigImage = bigImage;
     this.opening_video = opening_video;
     this.plot = plot;
-    this.category = category;
+    this.categoryName = categoryName;
   }
 }
