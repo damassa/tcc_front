@@ -7,9 +7,12 @@ import Slider from 'react-slick';
 import { SerieResponse } from '../../types/serie';
 import { useParams } from 'react-router-dom';
 import { getSerieById } from '../../api/SerieApi';
+import { getEpisodesBySerieId } from '../../api/EpisodesApi';
+import { EpisodeResponse } from '../../types/episode';
 
 const SerieDetail: React.FC = () => {
   const [serie, setSerie] = useState<SerieResponse>();
+  const [episodes, setEpisodes] = useState<EpisodeResponse[]>([]);
   const { id } = useParams();
 
   useEffect(() => {
@@ -18,9 +21,13 @@ const SerieDetail: React.FC = () => {
       setSerie(response);
     };
 
-    // const fetchEpisodes = async () => {};
+    const fetchEpisodes = async () => {
+      const response = await getEpisodesBySerieId(Number(id));
+      setEpisodes(response);
+    };
     fetchSerie();
-  });
+    fetchEpisodes();
+  }, []);
 
   const settings = {
     dots: false,
@@ -90,6 +97,21 @@ const SerieDetail: React.FC = () => {
           <div className="container-fluid p-5">
             <div className="slider-container carousel-container">
               <Slider {...settings}>
+                {episodes.map((episode) => (
+                  <div key={episode.id}>
+                    <iframe
+                      width="260"
+                      height="190"
+                      src={episode.link}
+                      title={episode.name}
+                      frameBorder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;"
+                      rel="noopener noreferrer"
+                      referrerPolicy="strict-origin-when-cross-origin"
+                      allowFullScreen
+                    ></iframe>
+                  </div>
+                ))}
                 {/* <div>
                   <iframe
                     src="https://www.youtube.com/embed/9McojMr8UiU"

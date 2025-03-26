@@ -5,6 +5,7 @@ import Footer from '../../components/Footer';
 import { SerieResponse } from '../../types/serie';
 import { getFavoriteSeries } from '../../api/SerieApi';
 import Loading from '../../components/Loading';
+import { Link } from 'react-router-dom';
 
 // import { Container } from './styles';
 
@@ -15,17 +16,15 @@ const Favorites: React.FC = () => {
   useEffect(() => {
     const fetchFavorites = async () => {
       try {
-        const favSeries = await getFavoriteSeries();
-        if (favSeries.length) {
-          setSeries(favSeries);
-          console.log('DADOS', favSeries);
-        }
+        const favorites = await getFavoriteSeries();
+        setSeries(favorites);
       } catch (error) {
-        console.error('Failed to fetch series', error);
+        console.error('Erro ao trazer séries', error);
       } finally {
         setLoading(false);
       }
     };
+
     fetchFavorites();
   }, []);
 
@@ -43,8 +42,14 @@ const Favorites: React.FC = () => {
             {/* hehehe */}
             {series.map((serie) => (
               <div className="serie-card" key={serie.id}>
-                <img src={serie.image} alt={serie.name} />
-                <p>{serie.name}</p>
+                <Link to={`/detail/${serie.id}`}>
+                  <img
+                    className="d-block w-100"
+                    src={serie.image}
+                    alt={serie.name}
+                    title={serie.name}
+                  />
+                </Link>
               </div>
             ))}
           </div>

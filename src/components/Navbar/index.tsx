@@ -25,6 +25,12 @@ const Navbar: React.FC = () => {
   useEffect(() => {
     const navElement = document.querySelector('.navbar');
 
+    document.querySelectorAll('.nav-link').forEach((link) => {
+      if (link.href === window.location.href) {
+        link.classList.add('active');
+      }
+    });
+
     const handleScroll = () => {
       if (window.scrollY >= 50) {
         navElement?.classList.add('navbar-purple');

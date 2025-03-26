@@ -53,24 +53,38 @@ export const getSerieById = async (id: number): Promise<SerieResponse> => {
   return response.data;
 };
 
-export const toggleFavoriteSerie = async () => {};
+// Adiciona uma série na lista de favoritos (PELO ID)
+export const toggleSerieToFavorites = async (id: number) => {};
 
+// Busca todas as séries favoritas do usuário logado
 export const getFavoriteSeries = async (): Promise<SerieResponse[]> => {
+  const token = localStorage.getItem('jwt');
+
+  if (!token) {
+    console.error('Token não encontrado.');
+    throw new Error('Não autorizado: Token nao encontrado.');
+  }
+
   try {
-    console.log('passou aqui');
     const response = await api.get('/api/v1/users/me/favorites', {
       headers: {
-        Authorization: `Bearer ${localStorage.getItem('jwt')}`,
+        Authorization: `Bearer ${token}`,
       },
     });
-    console.log(response);
-    const favorites = response.data.content;
-    console.log(favorites);
+    if (response.status === 204) {
+      return [];
+    }
+    const favorites = response.data;
     return favorites;
-  } catch (error) {
-    console.error(error);
+  } catch (error: unknown) {
+    console.error('Erro ao buscar séries favoritas:', error.message);
+
+    if (error.response?.status === 401) {
+      throw new Error('Não autorizado: Token expirado ou inválido.');
+    }
+
+    throw new Error('Falha ao buscar séries favoritas.');
   }
-  return [];
 };
 
 // Deleta uma série
