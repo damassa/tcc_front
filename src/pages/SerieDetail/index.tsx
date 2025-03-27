@@ -10,9 +10,12 @@ import { useParams } from 'react-router-dom';
 import { getSerieById } from '../../api/SerieApi';
 import { getEpisodesBySerieId } from '../../api/EpisodesApi';
 import { EpisodeResponse } from '../../types/episode';
+import api from '../../api/api';
+import RemoveFavoriteButton from '../../components/RemoveFavoriteButton';
 
 const SerieDetail: React.FC = () => {
   const [serie, setSerie] = useState<SerieResponse>();
+  const [favorites, setFavorites] = useState(false);
   const [episodes, setEpisodes] = useState<EpisodeResponse[]>([]);
   const { id } = useParams();
 
@@ -26,9 +29,26 @@ const SerieDetail: React.FC = () => {
       const response = await getEpisodesBySerieId(Number(id));
       setEpisodes(response);
     };
+
     fetchSerie();
     fetchEpisodes();
-  }, []);
+  }, [id]);
+
+  const handleFavorites = () => {
+    api
+      .post(
+        `/api/v1/series/toggleFavorites/`,
+        { serieId: Number(id) },
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem('jwt')}`,
+          },
+        },
+      )
+      .then((response) => {
+        setFavorites(response.data.favorites);
+      });
+  };
 
   const settings = {
     dots: false,
@@ -79,7 +99,9 @@ const SerieDetail: React.FC = () => {
               <h2 className="fw-bold">{serie?.year}</h2>
             </div>
             <div className="detail-fav-share">
-              <AddFavoriteButton />
+              <button onClick={handleFavorites}>
+                {favorites ? 'Adicionar aos favoritos' : 'Remover dos favoritos'}
+              </button>
             </div>
           </div>
           <div className="detail-plot">

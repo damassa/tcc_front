@@ -54,7 +54,17 @@ export const getSerieById = async (id: number): Promise<SerieResponse> => {
 };
 
 // Adiciona uma série na lista de favoritos (PELO ID)
-export const toggleSerieToFavorites = async (id: number) => {};
+// export const toggleSerieToFavorites = async (serieId: number, userId: number) => {
+//   try {
+//     await api.post(`/api/v1/series/toggleFavorites/`, {
+//       headers: {
+//         Authorization: `Bearer ${localStorage.getItem('jwt')}`,
+//       },
+//     });
+//   } catch (error) {
+//     console.error(error);
+//   }
+// };
 
 // Busca todas as séries favoritas do usuário logado
 export const getFavoriteSeries = async (): Promise<SerieResponse[]> => {
