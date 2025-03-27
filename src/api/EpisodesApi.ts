@@ -8,7 +8,6 @@ export const getEpisodesBySerieId = async (id: number): Promise<EpisodeResponse[
         Authorization: `Bearer ${localStorage.getItem('jwt')}`,
       },
     });
-    console.log(response.data);
     return response.data;
   } catch (error) {
     console.error(error);

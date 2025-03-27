@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import ReactPlayer from 'react-player/lazy';
 import './style.scss';
 import AddFavoriteButton from '../../components/AddFavoriteButton';
 import Navbar from '../../components/Navbar';
@@ -99,29 +100,9 @@ const SerieDetail: React.FC = () => {
               <Slider {...settings}>
                 {episodes.map((episode) => (
                   <div key={episode.id}>
-                    <iframe
-                      width="260"
-                      height="190"
-                      src={episode.link}
-                      title={episode.name}
-                      frameBorder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;"
-                      rel="noopener noreferrer"
-                      referrerPolicy="strict-origin-when-cross-origin"
-                      allowFullScreen
-                    ></iframe>
+                    <ReactPlayer url={episode.link} width={260} height={190} light controls />
                   </div>
                 ))}
-                {/* <div>
-                  <iframe
-                    src="https://www.youtube.com/embed/9McojMr8UiU"
-                    frameBorder="0"
-                    width="260"
-                    height="190"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                  ></iframe>
-                </div> */}
               </Slider>
             </div>
           </div>
